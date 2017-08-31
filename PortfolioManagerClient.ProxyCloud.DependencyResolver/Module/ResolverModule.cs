@@ -9,7 +9,7 @@ using PortfolioManagerClient.ProxyCloud.DAL.Interfacies.IRepositories;
 using PortfolioManagerClient.ProxyCloud.Entities;
 using System.Data.Entity;
 
-namespace ProjectManagement.DependencyResolver.Resolver
+namespace PortfolioManagerClient.ProxyCloud.DependencyResolver.Resolver
 {
     public static class ResolverModule
     {

@@ -68,10 +68,6 @@
       <Project>{75C4E5D4-4BC8-4215-9415-17B51755B760}</Project>
       <Name>PortfolioManagerClient.ProxyCloud.ORM</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PortfolioManagerClient.ProxyCloud\PortfolioManagerClient.ProxyCloud.csproj">
-      <Project>{771511F0-AF5E-47EC-8011-EAC91F0D013A}</Project>
-      <Name>PortfolioManagerClient.ProxyCloud</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -34,9 +34,9 @@ namespace PortfolioManagerClient.ProxyCloud.BLL.Mappers
             return dbShares?.Select(x => x.ToBllShare());
         }
 
-        public static IEnumerable<DalShare> ToDalShareEnumerable(this IEnumerable<BllShare> bllTasks)
+        public static IEnumerable<DalShare> ToDalShareEnumerable(this IEnumerable<BllShare> bllShares)
         {
-            return bllTasks?.Select(x => x.ToDalShare());
+            return bllShares?.Select(x => x.ToDalShare());
         }
     }
 }
