@@ -4,7 +4,6 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using Newtonsoft.Json;
 using PortfolioManagerClient.Models;
-using System.Threading.Tasks;
 
 namespace PortfolioManagerClient.Services
 {
@@ -13,9 +12,6 @@ namespace PortfolioManagerClient.Services
     /// </summary>
     public class PortfolioItemsService
     {
-        public static List<PortfolioItemViewModel> NameAndCount = new List<PortfolioItemViewModel>();
-
-
         /// <summary>
         /// The url for getting all portfolio items.
         /// </summary>
@@ -59,12 +55,8 @@ namespace PortfolioManagerClient.Services
         /// <returns>The list of portfolio items.</returns>
         public IList<PortfolioItemViewModel> GetItems(int userId)
         {
-            if (NameAndCount.Count > 0)
-                return NameAndCount;
-
             var dataAsString = _httpClient.GetStringAsync(string.Format(_serviceApiUrl + GetAllUrl, userId)).Result;
-            NameAndCount = JsonConvert.DeserializeObject<List<PortfolioItemViewModel>>(dataAsString);
-            return NameAndCount;
+            return JsonConvert.DeserializeObject<IList<PortfolioItemViewModel>>(dataAsString);
         }
 
         /// <summary>
@@ -73,10 +65,8 @@ namespace PortfolioManagerClient.Services
         /// <param name="item">The portfolio item to create.</param>
         public void CreateItem(PortfolioItemViewModel item)
         {
-            NameAndCount.Add(item);
-
-            Task.Run(() => _httpClient.PostAsJsonAsync(_serviceApiUrl + CreateUrl, item)
-                .Result.EnsureSuccessStatusCode());
+            _httpClient.PostAsJsonAsync(_serviceApiUrl + CreateUrl, item)
+                .Result.EnsureSuccessStatusCode();
         }
 
         /// <summary>
@@ -85,14 +75,8 @@ namespace PortfolioManagerClient.Services
         /// <param name="item">The portfolio item to update.</param>
         public void UpdateItem(PortfolioItemViewModel item)
         {
-            var itemIndex = NameAndCount.FindIndex(x => x.ItemId == item.ItemId);
-            if (itemIndex != -1)
-            {
-                NameAndCount[itemIndex] = item;
-
-                Task.Run(() => _httpClient.PutAsJsonAsync(_serviceApiUrl + UpdateUrl, item)
-                    .Result.EnsureSuccessStatusCode());
-            }
+            _httpClient.PutAsJsonAsync(_serviceApiUrl + UpdateUrl, item)
+                .Result.EnsureSuccessStatusCode();
         }
 
         /// <summary>
@@ -101,14 +85,8 @@ namespace PortfolioManagerClient.Services
         /// <param name="id">The portfolio item Id to delete.</param>
         public void DeleteItem(int id)
         {
-            var itemIndex = NameAndCount.FindIndex(x => x.ItemId == id);
-            if (itemIndex != -1)
-            {
-                NameAndCount.RemoveAt(itemIndex);
-
-                Task.Run(() => _httpClient.DeleteAsync(string.Format(_serviceApiUrl + DeleteUrl, id))
-                    .Result.EnsureSuccessStatusCode());
-            }
+            _httpClient.DeleteAsync(string.Format(_serviceApiUrl + DeleteUrl, id))
+                .Result.EnsureSuccessStatusCode();
         }
     }
 }

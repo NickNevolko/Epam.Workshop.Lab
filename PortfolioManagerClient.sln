@@ -5,6 +5,16 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortfolioManagerClient", "PortfolioManagerClient\PortfolioManagerClient.csproj", "{DCF98A24-6871-43D7-BAB1-0D00B7A59A01}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortfolioManagerClient.ProxyCloud", "PortfolioManagerClient.ProxyCloud\PortfolioManagerClient.ProxyCloud.csproj", "{771511F0-AF5E-47EC-8011-EAC91F0D013A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortfolioManagerClient.ProxyCloud.ORM", "PortfolioManagerClient.ProxyCloud.ORM\PortfolioManagerClient.ProxyCloud.ORM.csproj", "{75C4E5D4-4BC8-4215-9415-17B51755B760}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortfolioManagerClient.ProxyCloud.DAL", "PortfolioManagerClient.ProxyCloud.DAL\PortfolioManagerClient.ProxyCloud.DAL.csproj", "{20C5B793-BE36-44FA-A2E9-D07B8E441170}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortfolioManagerClient.ProxyCloud.BLL", "PortfolioManagerClient.ProxyCloud.BLL\PortfolioManagerClient.ProxyCloud.BLL.csproj", "{F207A017-BEFB-48BD-ACC8-D13E2BE7E4CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortfolioManagerClient.ProxyCloud.DependencyResolver", "PortfolioManagerClient.ProxyCloud.DependencyResolver\PortfolioManagerClient.ProxyCloud.DependencyResolver.csproj", "{1892AA51-5AA1-477A-A14B-F2A59487C9CE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +25,26 @@ Global
 		{DCF98A24-6871-43D7-BAB1-0D00B7A59A01}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCF98A24-6871-43D7-BAB1-0D00B7A59A01}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCF98A24-6871-43D7-BAB1-0D00B7A59A01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{771511F0-AF5E-47EC-8011-EAC91F0D013A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{771511F0-AF5E-47EC-8011-EAC91F0D013A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{771511F0-AF5E-47EC-8011-EAC91F0D013A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{771511F0-AF5E-47EC-8011-EAC91F0D013A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75C4E5D4-4BC8-4215-9415-17B51755B760}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75C4E5D4-4BC8-4215-9415-17B51755B760}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75C4E5D4-4BC8-4215-9415-17B51755B760}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75C4E5D4-4BC8-4215-9415-17B51755B760}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20C5B793-BE36-44FA-A2E9-D07B8E441170}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20C5B793-BE36-44FA-A2E9-D07B8E441170}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20C5B793-BE36-44FA-A2E9-D07B8E441170}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20C5B793-BE36-44FA-A2E9-D07B8E441170}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F207A017-BEFB-48BD-ACC8-D13E2BE7E4CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F207A017-BEFB-48BD-ACC8-D13E2BE7E4CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F207A017-BEFB-48BD-ACC8-D13E2BE7E4CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F207A017-BEFB-48BD-ACC8-D13E2BE7E4CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1892AA51-5AA1-477A-A14B-F2A59487C9CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1892AA51-5AA1-477A-A14B-F2A59487C9CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1892AA51-5AA1-477A-A14B-F2A59487C9CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1892AA51-5AA1-477A-A14B-F2A59487C9CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
