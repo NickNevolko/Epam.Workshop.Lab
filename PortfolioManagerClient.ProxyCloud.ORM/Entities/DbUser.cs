@@ -7,6 +7,8 @@ namespace PortfolioManagerClient.ProxyCloud.Entities
     {
         public int Id { get; set; }
 
+        public string Name { get; set; }
+
         [InverseProperty("DbUserId")]
         public virtual ICollection<DbShare> Shares { get; set; }
     }

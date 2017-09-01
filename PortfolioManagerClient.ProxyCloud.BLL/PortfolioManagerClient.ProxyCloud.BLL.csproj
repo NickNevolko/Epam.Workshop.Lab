@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -54,6 +55,10 @@
     <ProjectReference Include="..\PortfolioManagerClient.ProxyCloud.DAL\PortfolioManagerClient.ProxyCloud.DAL.csproj">
       <Project>{20C5B793-BE36-44FA-A2E9-D07B8E441170}</Project>
       <Name>PortfolioManagerClient.ProxyCloud.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PortfolioManagerClient.ProxyCloud.ServiceAPI\PortfolioManagerClient.ProxyCloud.ServiceAPI.csproj">
+      <Project>{17FB81DC-A666-4EE9-93B2-046F1BC72519}</Project>
+      <Name>PortfolioManagerClient.ProxyCloud.ServiceAPI</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -23,18 +23,25 @@ namespace PortfolioManagerClient.ProxyCloud.DAL.Concrete.Repositories
             if (item == null)
                 throw new ArgumentNullException(nameof(item));
 
-            var Share = new DbShare()
+            var share = new DbShare()
             {
                 Id = item.Id,
                 User = item.User.ToDbUser(),
                 SharesNumber = item.SharesNumber,
                 Symbol = item.Symbol
             };
+
+            _context.Set<DbShare>().Add(share);
         }
 
         public void Update(DalShare item)
         {
-            throw new NotImplementedException();
+            var share = _context.Set<DbShare>().SingleOrDefault(u => u.Id == item.Id);
+            if (share == null)
+                throw new ArgumentException("Such id was not found");
+
+            _context.Set<DbShare>().Remove(share);
+            _context.Set<DbShare>().Add(item.ToDbShare());
         }
 
         public void Delete(DalShare item)
@@ -57,7 +64,7 @@ namespace PortfolioManagerClient.ProxyCloud.DAL.Concrete.Repositories
 
         public IEnumerable<DalShare> GetAll()
         {
-            throw new NotImplementedException();
+            return _context.Set<DbShare>().ToList().ToDalShareEnumerable();
         }
     }
 }

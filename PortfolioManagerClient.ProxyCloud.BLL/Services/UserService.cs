@@ -32,5 +32,21 @@ namespace PortfolioManagerClient.ProxyCloud.BLL.Services
         {
             return _userRepository.GetAll()?.ToBllUserEnumerable();
         }
+
+        public BllUser GetUserById(int id)
+        {
+            if (id < 0)
+                throw new ArgumentException($"Argument '{nameof(id)}' can't be < 0");
+
+            return _userRepository.GetById(id)?.ToBllUser();
+        }
+
+        public BllUser GetUserByName(string userName)
+        {
+            if (string.IsNullOrEmpty(userName))
+                throw new ArgumentException($"Argument '{nameof(userName)}' can't be null or empty");
+
+            return _userRepository.GetByName(userName)?.ToBllUser();
+        }
     }
 }

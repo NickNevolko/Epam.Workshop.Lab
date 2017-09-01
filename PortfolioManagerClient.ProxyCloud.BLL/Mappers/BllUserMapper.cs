@@ -12,6 +12,7 @@ namespace PortfolioManagerClient.ProxyCloud.BLL.Mappers
             return new BllUser()
             {
                 Id = dalUser.Id,
+                Name = dalUser.Name,
                 Shares = dalUser.Shares.ToBllShareEnumerable()
             };
         }
@@ -21,6 +22,7 @@ namespace PortfolioManagerClient.ProxyCloud.BLL.Mappers
             return new DalUser()
             {
                 Id = bllUser.Id,
+                Name = bllUser.Name,
                 Shares = bllUser.Shares.ToDalShareEnumerable()
             };
         }

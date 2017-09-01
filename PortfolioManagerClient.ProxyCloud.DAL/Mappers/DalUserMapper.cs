@@ -14,6 +14,7 @@ namespace PortfolioManagerClient.ProxyCloud.DAL.Mappers
             return new DalUser()
             {
                 Id = dbUser.Id,
+                Name = dbUser.Name,
                 Shares = dbUser.Shares.ToDalShareEnumerable()
             };
         }
@@ -23,6 +24,7 @@ namespace PortfolioManagerClient.ProxyCloud.DAL.Mappers
             return new DbUser()
             {
                 Id = dalUser.Id,
+                Name = dalUser.Name,
                 Shares = dalUser.Shares.ToDbShareCollection()
             };
         }
@@ -32,7 +34,7 @@ namespace PortfolioManagerClient.ProxyCloud.DAL.Mappers
             return dbUsers?.Select(x => x.ToDalUser());
         }
 
-        public static ICollection<DbUser> ToDbProfileCollection(this IEnumerable<DalUser> dalUsers)
+        public static ICollection<DbUser> ToDbUserCollection(this IEnumerable<DalUser> dalUsers)
         {
             return dalUsers?.Select(x => x.ToDbUser()) as ICollection<DbUser>;
         }

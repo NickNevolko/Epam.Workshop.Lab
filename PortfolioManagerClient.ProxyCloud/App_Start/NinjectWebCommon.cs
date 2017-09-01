@@ -1,16 +1,18 @@
-using System;
-using System.Web;
-using Microsoft.Web.Infrastructure.DynamicModuleHelper;
-using Ninject;
-using Ninject.Web.Common;
-using PortfolioManagerClient.ProxyCloud;
-using PortfolioManagerClient.ProxyCloud.Infrastructure;
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(PortfolioManagerClient.ProxyCloud.App_Start.NinjectWebCommon), "Start")]
+[assembly: WebActivatorEx.ApplicationShutdownMethod(typeof(PortfolioManagerClient.ProxyCloud.App_Start.NinjectWebCommon), "Stop")]
 
-[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(NinjectWebCommon), "Start")]
-[assembly: WebActivatorEx.ApplicationShutdownMethod(typeof(NinjectWebCommon), "Stop")]
-
-namespace PortfolioManagerClient.ProxyCloud
+namespace PortfolioManagerClient.ProxyCloud.App_Start
 {
+    using System;
+    using System.Web;
+
+    using Microsoft.Web.Infrastructure.DynamicModuleHelper;
+
+    using Ninject;
+    using Ninject.Web.Common;
+    using System.Web.Http;
+    using Ninject.Web.WebApi;
+
     public static class NinjectWebCommon
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
@@ -38,7 +40,8 @@ namespace PortfolioManagerClient.ProxyCloud
 
         private static void RegisterServices(IKernel kernel)
         {
-            System.Web.Mvc.DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
+            System.Web.Mvc.DependencyResolver.SetResolver(
+                new PortfolioManagerClient.ProxyCloud.Infrastructure.NinjectDependencyResolver(kernel));
         }
     }
 }

@@ -33,7 +33,7 @@ namespace PortfolioManagerClient.ProxyCloud.DependencyResolver.Resolver
 
             kernel.Bind<IUserService>().To<UserService>();
             kernel.Bind<IShareService>().To<ShareService>();
-            
+
             kernel.Bind<IUserRepository>().To<UserRepository>();
             kernel.Bind<IShareRepository>().To<ShareRepository>();
         }

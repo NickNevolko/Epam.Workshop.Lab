@@ -7,6 +7,8 @@ namespace PortfolioManagerClient.ProxyCloud.DAL.DTO
     {
         public int Id { get; set; }
 
+        public string Name { get; set; }
+
         public IEnumerable<DalShare> Shares { get; set; }
     }
 }

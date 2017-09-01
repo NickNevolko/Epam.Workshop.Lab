@@ -12,8 +12,6 @@ namespace PortfolioManagerClient.ProxyCloud.DAL.Concrete.Repositories
 {
     public class UserRepository : IUserRepository
     {
-        public static readonly string DefaultRole = "Default";
-
         private readonly DbContext _context;
 
         public UserRepository(DbContext context)
@@ -52,6 +50,15 @@ namespace PortfolioManagerClient.ProxyCloud.DAL.Concrete.Repositories
         public IEnumerable<DalUser> GetAll()
         {
             return _context.Set<DbUser>().Select(DalUserMapper.ExpressionToDalUser);
+        }
+
+        public DalUser GetByName(string userName)
+        {
+            var user = _context.Set<DbUser>().SingleOrDefault(u => u.Name == userName);
+            if (user == null)
+                return null;
+
+            return user.ToDalUser();
         }
     }
 }

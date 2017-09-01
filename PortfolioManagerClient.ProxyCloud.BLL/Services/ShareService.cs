@@ -26,5 +26,23 @@ namespace PortfolioManagerClient.ProxyCloud.BLL.Services
             _shareRepository.Create(share.ToDalShare());
             _uow.Commit();
         }
+
+        public void Update(BllShare share)
+        {
+            if (share == null)
+                throw new ArgumentNullException(nameof(share));
+
+            _shareRepository.Update(share.ToDalShare());
+            _uow.Commit();
+        }
+
+        public void Delete(int id)
+        {
+            if (id < 0)
+                throw new ArgumentException(nameof(id));
+
+            _shareRepository.Delete(_shareRepository.GetById(id));
+            _uow.Commit();
+        }
     }
 }
