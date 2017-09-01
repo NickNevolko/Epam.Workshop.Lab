@@ -3,11 +3,14 @@
     // appends a row to the portfolio items table.
     // @parentSelector: selector to append a row to.
     // @obj: portfolio item object to append.
-    var appendRow = function(parentSelector, obj) {
+    var appendRow = function (parentSelector, obj) {
+        Cost = Math.floor((Math.random() * 100) + 1);
         var tr = $("<tr data-id='" + obj.ItemId + "'></tr>");
         tr.append("<td class='name' >" + obj.Symbol + "</td>");
         tr.append("<td class='name' >" + obj.SharesNumber + "</td>");
-        tr.append("<td><input type='button' class='update-button' value='Update' /><input type='button' class='delete-button' value='Delete' /></td>");
+        tr.append("<td class='cost' >" + Cost + "</td>");
+        tr.append("<td class='name' >" + obj.SharesNumber * Cost + "</td>");
+        tr.append("<td><input type='button' class='class='btn btn-primary update-button' update-button' value='Update' /> <input type='button' class='btn btn-warning delete-button' value='Delete' /></td>");
         $(parentSelector).append(tr);
     }
 
